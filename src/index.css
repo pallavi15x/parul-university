@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* --- TAILWIND V4 THEME CONFIGURATION --- */
+@theme {
+  /* Parul University Brand Colors */
+  --color-pu-gold: #FFD700;
+  --color-pu-dark: #0a0a0a;
+  --color-pu-gray: #161616;
+  
+  /* Custom Animations */
+  --animate-float: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* --- GLOBAL STYLES --- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-pu-dark text-white antialiased selection:bg-pu-gold selection:text-black;
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* --- CUSTOM UI COMPONENTS --- */
+@layer components {
+  .glass-card {
+    @apply bg-white/5 border border-white/10 backdrop-blur-md rounded-[2rem] transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-pu-gold text-black px-8 py-4 rounded-2xl font-black uppercase flex items-center gap-2 hover:shadow-[0_0_40px_rgba(255,215,0,0.3)] transition-all active:scale-95;
+  }
+}
+
+/* --- CUSTOM SCROLLBAR (PRO LOOK) --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 100px;
+  border: 2px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFD700;
+}
+
+/* --- UTILITIES --- */
+.text-gradient {
+  background: linear-gradient(to right, #FFD700, #ffed8a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
