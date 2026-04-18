@@ -46,6 +46,7 @@ export default function Home() {
             alt="Parul University Gate"
             className="w-full h-full object-cover object-center"
           />
+          
           {/* Transparency stays clear until 98% depth to show the gate floor */}
           <div className="absolute inset-0 bg-gradient-to-b from-pu-dark/30 via-transparent via-[98%] to-pu-dark" />
         </div>
