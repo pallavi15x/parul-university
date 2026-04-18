@@ -7,7 +7,7 @@ import Events from './pages/Events';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/parul-university">
       <Navbar /> 
       <Routes>
         <Route path="/" element={<Home />} />
