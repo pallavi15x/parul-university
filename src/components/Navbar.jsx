@@ -10,6 +10,7 @@ const Navbar = () => {
         <Link to="/" className="hover:text-orange-500 transition">Home</Link>
         <Link to="/about" className="hover:text-orange-500 tarnsition">About</Link>
         <Link to="/events" className="hover:text-orange-500 transition">Events</Link>
+         <Link to="/campus" className="hover:text-orange-500 transition">Campus Map</Link>
       </div>
       <button className="bg-yellow-400 px-6 py-2 rounded-full font-bold text-black transition">
         Apply Now 2026

@@ -8,7 +8,7 @@ export default function Home() {
     <div className="min-h-screen bg-pu-dark pb-20 selection:bg-pu-gold selection:text-black">
       
       {/* 1. NEWS TICKER */}
-      <div className="bg-pu-gold text-black py-2 overflow-hidden whitespace-nowrap border-y border-black/10 mt-16 md:mt-24">
+      {/* <div className="bg-pu-gold text-black py-2 overflow-hidden whitespace-nowrap border-y border-black/10 mt-16 md:mt-24">
         <motion.div 
           animate={{ x: [0, -1000] }} 
           transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
@@ -19,7 +19,8 @@ export default function Home() {
           <span>• 2500+ Placements Secured</span>
           <span>• Ranked Top 50 Universities in India</span>
         </motion.div>
-      </div>
+      </div> */}
+
 
       {/* 2. HERO SECTION WITH MAXIMUM CLARITY */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
