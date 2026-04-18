@@ -59,13 +59,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. QUICK STATS (SHIFTED DOWN TO UNCOVER ENTRANCE) */}
-      <section className="max-w-7xl mx-auto px-6 mt-10 relative z-20 grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatItem val="45k+" label="Students" />
-        <StatItem val="NAAC A++" label="Grade" />
-        <StatItem val="150+" label="Acres" />
-        <StatItem val="75+" label="Nations" />
-      </section>
+      {/* Change -mt-16 to mt-10 to clear the gate floor */}
+<section className="max-w-7xl mx-auto px-6 mt-10 relative z-20 grid grid-cols-2 md:grid-cols-4 gap-4">
+  <StatItem val="45k+" label="Students" />
+  <StatItem val="NAAC A++" label="Grade" />
+  <StatItem val="150+" label="Acres" />
+  <StatItem val="75+" label="Nations" />
+</section>
 
       {/* 4. DEPARTMENTS GRID */}
       <section className="max-w-7xl mx-auto px-6 py-24">

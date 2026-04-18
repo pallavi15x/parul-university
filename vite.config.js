@@ -4,6 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/parul-university/",
-  
+  base: '/', // Change this from '/parul-university/' to just '/'
 })
