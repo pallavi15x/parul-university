@@ -38,7 +38,7 @@ export default function Home() {
     //   </div>
 >>>>>>> da0134ab97b1df65696ace101e16bc349b4da8a0
 
-      {/* 2. HERO SECTION WITH MAXIMUM CLARITY */}
+
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
