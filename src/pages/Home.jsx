@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-pu-dark pb-20 selection:bg-pu-gold selection:text-black">
+    // <div className="min-h-screen bg-pu-dark pb-20 selection:bg-pu-gold selection:text-black">
       
+<<<<<<< HEAD
       {/* 1. NEWS TICKER */}
       {/* <div className="bg-pu-gold text-black py-2 overflow-hidden whitespace-nowrap border-y border-black/10 mt-16 md:mt-24">
         <motion.div 
@@ -21,6 +22,21 @@ export default function Home() {
         </motion.div>
       </div> */}
 
+=======
+    //   {/* 1. NEWS TICKER */}
+    //   <div className="bg-pu-gold text-black py-2 overflow-hidden whitespace-nowrap border-y border-black/10 mt-16 md:mt-24">
+    //     <motion.div 
+    //       animate={{ x: [0, -1000] }} 
+    //       transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+    //       className="flex gap-12 font-black uppercase text-[10px] tracking-widest"
+    //     >
+    //       <span>• Admissions Open 2026-27</span>
+    //       <span>• NAAC A++ Accredited</span>
+    //       <span>• 2500+ Placements Secured</span>
+    //       <span>• Ranked Top 50 Universities in India</span>
+    //     </motion.div>
+    //   </div>
+>>>>>>> da0134ab97b1df65696ace101e16bc349b4da8a0
 
       {/* 2. HERO SECTION WITH MAXIMUM CLARITY */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
