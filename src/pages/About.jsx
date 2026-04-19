@@ -177,6 +177,5 @@ function FeatureItem({ icon, title, text }) {
         <p className="text-gray-500 text-sm leading-relaxed">{text}</p>
       </div>
     </div>
-    
   );
 }
