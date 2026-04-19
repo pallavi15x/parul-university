@@ -5,40 +5,9 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    // <div className="min-h-screen bg-pu-dark pb-20 selection:bg-pu-gold selection:text-black">
+
+<div className="min-h-screen bg-pu-dark pb-20 selection:bg-pu-gold selection:text-black">
       
-<<<<<<< HEAD
-      {/* 1. NEWS TICKER */}
-      {/* <div className="bg-pu-gold text-black py-2 overflow-hidden whitespace-nowrap border-y border-black/10 mt-16 md:mt-24">
-        <motion.div 
-          animate={{ x: [0, -1000] }} 
-          transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-          className="flex gap-12 font-black uppercase text-[10px] tracking-widest"
-        >
-          <span>• Admissions Open 2026-27</span>
-          <span>• NAAC A++ Accredited</span>
-          <span>• 2500+ Placements Secured</span>
-          <span>• Ranked Top 50 Universities in India</span>
-        </motion.div>
-      </div> */}
-
-=======
-    //   {/* 1. NEWS TICKER */}
-    //   <div className="bg-pu-gold text-black py-2 overflow-hidden whitespace-nowrap border-y border-black/10 mt-16 md:mt-24">
-    //     <motion.div 
-    //       animate={{ x: [0, -1000] }} 
-    //       transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-    //       className="flex gap-12 font-black uppercase text-[10px] tracking-widest"
-    //     >
-    //       <span>• Admissions Open 2026-27</span>
-    //       <span>• NAAC A++ Accredited</span>
-    //       <span>• 2500+ Placements Secured</span>
-    //       <span>• Ranked Top 50 Universities in India</span>
-    //     </motion.div>
-    //   </div>
->>>>>>> da0134ab97b1df65696ace101e16bc349b4da8a0
-
-
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -46,8 +15,6 @@ export default function Home() {
             alt="Parul University Gate"
             className="w-full h-full object-cover object-center"
           />
-          
-          {/* Transparency stays clear until 98% depth to show the gate floor */}
           <div className="absolute inset-0 bg-gradient-to-b from-pu-dark/30 via-transparent via-[98%] to-pu-dark" />
         </div>
         
@@ -77,17 +44,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Change -mt-16 to mt-10 to clear the gate floor */}
-<section className="max-w-7xl mx-auto px-6 mt-10 relative z-20 grid grid-cols-2 md:grid-cols-4 gap-4">
-  <StatItem val="45k+" label="Students" />
-  <StatItem val="NAAC A++" label="Grade" />
-  <StatItem val="150+" label="Acres" />
-  <StatItem val="75+" label="Nations" />
-</section>
+      <section className="max-w-7xl mx-auto px-6 mt-10 relative z-20 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <StatItem val="45k+" label="Students" />
+        <StatItem val="NAAC A++" label="Grade" />
+        <StatItem val="150+" label="Acres" />
+        <StatItem val="75+" label="Nations" />
+      </section>
 
-      {/* 4. DEPARTMENTS GRID */}
       <section className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-4xl font-black tracking-tighter uppercase mb-12 italic text-white">Academic <span className="text-pu-gold">Faculties</span></h2>
+        <h2 className="text-4xl font-black tracking-tighter uppercase mb-12 italic text-white">
+          Academic <span className="text-pu-gold">Faculties</span>
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <DeptCard icon={<Laptop />} name="Engineering" />
           <DeptCard icon={<Activity />} name="Medical" />
@@ -116,7 +83,9 @@ function StatItem({ val, label }) {
 function DeptCard({ icon, name }) {
   return (
     <div className="bg-pu-gray/40 p-10 rounded-[2.5rem] border border-white/5 hover:border-pu-gold/30 transition-all group">
-      <div className="text-pu-gold mb-6 group-hover:scale-110 transition-transform">{React.cloneElement(icon, { size: 32 })}</div>
+      <div className="text-pu-gold mb-6 group-hover:scale-110 transition-transform">
+        {React.cloneElement(icon, { size: 32 })}
+      </div>
       <h3 className="text-xl font-bold uppercase italic text-white">{name}</h3>
     </div>
   );

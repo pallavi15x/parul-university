@@ -1,5 +1,6 @@
-@import "tailwindcss";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* --- TAILWIND V4 THEME CONFIGURATION --- */
 @theme {
   /* Parul University Brand Colors */

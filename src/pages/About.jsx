@@ -1,119 +1,180 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Target, Eye, Users, Award, BookOpen } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Target, Eye, Users, Award, Sparkles, MessageCircle, 
+  Heart, Zap, Globe, Rocket, BookOpen, Coffee, Landmark,
+  ShieldCheck, GraduationCap
+} from 'lucide-react';
 
 export default function About() {
+  const [isChatVisible, setIsChatVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsChatVisible(true), 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-pu-dark pb-20 selection:bg-pu-gold selection:text-black">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-orange-500 overflow-x-hidden font-sans">
       
-      {/* 1. HEADER SECTION */}
-      <section className="pt-32 px-6 max-w-7xl mx-auto text-center mb-24">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 1 }}
-        >
-          <span className="text-pu-gold font-black uppercase tracking-[0.5em] text-[10px] mb-4 block">
-            Institutional Legacy
-          </span>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 uppercase text-white leading-none">
-            GLOBAL <span className="text-pu-gold italic">EXCELLENCE</span>
-          </h1>
-          <p className="text-gray-400 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-medium">
-            Parul University is a <b className="text-white">NAAC A++</b> accredited institution located in Vadodara, Gujarat. 
-            We provide a holistic educational experience that combines academic rigor with 
-            unmatched industry exposure.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* 2. MISSION & VISION CARDS */}
-      <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 mb-32">
-        <motion.div 
-          whileHover={{ y: -10 }}
-          className="bg-pu-gray/30 p-12 rounded-[3rem] border border-white/5 hover:border-pu-gold/20 transition-all group"
-        >
-          <Target className="text-pu-gold mb-6 group-hover:scale-110 transition-transform" size={48} />
-          <h3 className="text-3xl font-black mb-4 italic uppercase text-white">Our Mission</h3>
-          <p className="text-gray-500 leading-relaxed italic text-lg">
-            "To provide quality education that empowers students to be innovative, 
-            socially responsible, and ethically strong global citizens."
-          </p>
-        </motion.div>
-
-        <motion.div 
-          whileHover={{ y: -10 }}
-          className="bg-pu-gray/30 p-12 rounded-[3rem] border border-white/5 hover:border-pu-gold/20 transition-all group"
-        >
-          <Eye className="text-pu-gold mb-6 group-hover:scale-110 transition-transform" size={48} />
-          <h3 className="text-3xl font-black mb-4 italic uppercase text-white">Our Vision</h3>
-          <p className="text-gray-500 leading-relaxed italic text-lg">
-            "To emerge as a world-class university recognized for excellence in research, 
-            teaching, and consultancy on a global stage."
-          </p>
-        </motion.div>
-      </section>
-
-      {/* 3. UNIVERSITY LEADERSHIP */}
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic mb-16 text-center text-white">
-          University <span className="text-pu-gold">Leadership</span>
-        </h2>
+      {/* 1. THE FLOATING ANIME GUIDE (RESIZED CAT) */}
+      <div className="fixed bottom-4 right-4 z-[100] pointer-events-none">
+        <AnimatePresence>
+          {isChatVisible && (
+            <motion.div 
+              initial={{ opacity: 0, y: 20, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.5 }}
+              // Adjusted positioning for smaller cat
+              className="absolute -top-24 -left-32 md:-left-40 pointer-events-auto"
+            >
+              <div className="bg-white text-black p-3 rounded-2xl rounded-br-none shadow-xl border-2 border-orange-500 relative">
+                <p className="font-black text-[10px] md:text-xs leading-tight">
+                  "Hii! Welcome to PU! ✨ <br/> 
+                  <span className="text-orange-600">70,000+ students</span> <br/>
+                  are here with us!"
+                </p>
+                <div className="absolute -bottom-2 right-0 w-4 h-4 bg-white border-r-2 border-b-2 border-orange-500 rotate-45" />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <LeaderCard 
-            name="Dr. Devanshu Patel" 
-            role="President" 
-            desc="The visionary force driving Parul University's growth into a premier global educational hub."
-          />
-          <LeaderCard 
-            name="Dr. Amit Ganatra" 
-            role="Vice Chancellor" 
-            desc="Leading academic innovation and research excellence across all 450+ courses."
-          />
+        <motion.img 
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1, y: [0, -10, 0] }}
+          transition={{ 
+            x: { type: "spring", stiffness: 50 },
+            y: { repeat: Infinity, duration: 4, ease: "easeInOut" } 
+          }}
+          src="https://static.vecteezy.com/system/resources/previews/028/597/487/original/smiling-cute-cartoon-cat-file-no-background-ai-generated-png.png" 
+          alt="Welcome Guide"
+          // SMALLER SIZE APPLIED HERE
+          className="w-[120px] md:w-[180px] drop-shadow-[0_0_30px_rgba(249,115,22,0.3)]"
+        />
+      </div>
+
+      {/* 2. HERO SECTION */}
+      <section className="relative h-screen flex items-center px-6 md:px-20">
+        <div className="max-w-6xl z-10">
+          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+            <span className="text-orange-500 font-black tracking-[0.5em] text-xs mb-4 block animate-pulse">
+              INDIA'S YOUNGEST NAAC A++ UNIVERSITY
+            </span>
+            <h1 className="text-6xl md:text-[10rem] font-black leading-[0.85] tracking-tighter uppercase mb-8">
+              BEYOND <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-red-500 italic">LIMITS.</span>
+            </h1>
+            <p className="text-gray-400 text-xl max-w-3xl font-medium leading-relaxed italic border-l-4 border-orange-500 pl-8">
+              Parul University is more than a campus; it's a global village. 
+              Ranked in the NIRF Top 50 for Innovation, we are the 
+              epicenter of research, culture, and entrepreneurship in Gujarat.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* 4. ACADEMIC HIGHLIGHTS */}
-      <section className="max-w-7xl mx-auto px-6 mt-32">
-        <div className="bg-pu-gold p-12 rounded-[4rem] text-black flex flex-col md:flex-row items-center justify-between gap-10">
-          <div className="max-w-xl">
-            <h2 className="text-4xl font-black uppercase italic mb-4">Innovation & Research</h2>
-            <p className="font-bold text-lg opacity-80">
-              With 150+ acres of campus and students from 75+ nations, we are building 
-              the future of education right here in Gujarat.
-            </p>
-          </div>
-          <div className="flex gap-4">
-            <div className="bg-black text-white p-6 rounded-3xl text-center min-w-[120px]">
-              <div className="text-3xl font-black">2500+</div>
-              <div className="text-[10px] uppercase font-bold tracking-widest">Placements</div>
-            </div>
-            <div className="bg-black text-white p-6 rounded-3xl text-center min-w-[120px]">
-              <div className="text-3xl font-black">700+</div>
-              <div className="text-[10px] uppercase font-bold tracking-widest">Patents</div>
-            </div>
-          </div>
+      {/* 3. CORE STATS GRID */}
+      <section className="px-6 md:px-20 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <StatCard icon={<Globe size={24}/>} label="Nations" val="75+" color="border-orange-500" />
+          <StatCard icon={<Users size={24}/>} label="Students" val="70k+" color="border-pink-500" />
+          <StatCard icon={<Rocket size={24}/>} label="Startups" val="250+" color="border-blue-500" />
+          <StatCard icon={<Award size={24}/>} label="Patents" val="425+" color="border-green-500" />
         </div>
       </section>
+
+      {/* 4. WHY PU? (Detailed Info) */}
+      <section className="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="space-y-8">
+          <h2 className="text-5xl font-black uppercase italic tracking-tighter">
+            The <span className="text-orange-500">Innovation</span> Hub
+          </h2>
+          <div className="space-y-6">
+            <FeatureItem 
+              icon={<ShieldCheck className="text-orange-500" />}
+              title="NAAC A++ Accredited"
+              text="The highest mark of quality education in India, ensuring your degree is globally recognized."
+            />
+            <FeatureItem 
+              icon={<GraduationCap className="text-blue-400" />}
+              title="200+ Global Tie-ups"
+              text="Partnerships with top universities in the USA, UK, and Europe for student exchange programs."
+            />
+            <FeatureItem 
+              icon={<Landmark className="text-pink-400" />}
+              title="250 Acre Green Campus"
+              text="A world-class infrastructure featuring smart labs, massive libraries, and luxury hostels."
+            />
+          </div>
+        </div>
+        <div className="relative group">
+           <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-pink-500 blur-[80px] opacity-20 group-hover:opacity-40 transition-all" />
+           <img 
+            src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800" 
+            className="relative z-10 rounded-[4rem] border-2 border-white/10 grayscale hover:grayscale-0 transition-all duration-700"
+            alt="University Campus"
+           />
+        </div>
+      </section>
+
+      {/* 5. MISSION & VISION */}
+      <section className="px-6 md:px-20 py-40 bg-white/[0.02]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+          <motion.div whileHover={{ scale: 1.02 }} className="space-y-6 p-10 bg-[#0f0f0f] rounded-[3rem] border border-orange-500/20">
+            <Target size={48} className="text-orange-500" />
+            <h3 className="text-4xl font-black uppercase italic">Our Mission</h3>
+            <p className="text-gray-400 text-xl leading-relaxed">
+              To provide a multidisciplinary environment for holistic growth, focusing on 
+              research-driven education and preparing students for the challenges of Industry 4.0.
+            </p>
+          </motion.div>
+
+          <motion.div whileHover={{ scale: 1.02 }} className="space-y-6 p-10 bg-[#0f0f0f] rounded-[3rem] border border-pink-500/20">
+            <Eye size={48} className="text-pink-500" />
+            <h3 className="text-4xl font-black uppercase italic">Our Vision</h3>
+            <p className="text-gray-400 text-xl leading-relaxed">
+              To emerge as a global leader in higher education, fostering innovation that 
+              contributes to the sustainable development of society and humanity.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 6. FOOTER */}
+      <footer className="py-20 text-center border-t border-white/5">
+        <div className="flex justify-center gap-8 mb-8 opacity-50">
+           <BookOpen size={20} />
+           <Sparkles size={20} />
+           <Coffee size={20} />
+        </div>
+        <p className="text-[10px] font-black uppercase tracking-[0.5em] text-gray-600">
+          Parul University • Vadodara, Gujarat • Estd. 1993
+        </p>
+      </footer>
 
     </div>
   );
 }
 
-{/* HELPER COMPONENT FOR LEADERS */}
-function LeaderCard({ name, role, desc }) {
+function StatCard({ icon, label, val, color }) {
   return (
-    <div className="flex flex-col md:flex-row gap-8 items-center bg-pu-gray/20 p-8 rounded-[3rem] border border-white/5 hover:bg-pu-gray/30 transition-all shadow-xl">
-      <div className="w-32 h-32 bg-pu-gray rounded-[2rem] flex items-center justify-center border border-white/10 shrink-0">
-        <Users size={40} className="text-pu-gold/20" />
+    <div className={`bg-[#0f0f0f] p-8 rounded-[2.5rem] border-b-4 ${color} transition-all hover:-translate-y-2`}>
+      <div className="mb-4 text-gray-400">{icon}</div>
+      <div className="text-4xl font-black mb-1">{val}</div>
+      <div className="text-[10px] font-black uppercase tracking-widest text-gray-600">{label}</div>
+    </div>
+  );
+}
+
+function FeatureItem({ icon, title, text }) {
+  return (
+    <div className="flex gap-6 group">
+      <div className="shrink-0 w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-orange-500 transition-colors">
+        {icon}
       </div>
       <div>
-        <h4 className="font-black text-2xl text-white mb-1 uppercase tracking-tight">{name}</h4>
-        <p className="text-pu-gold text-[10px] font-black uppercase tracking-widest mb-3">{role}</p>
-        <p className="text-gray-500 text-sm italic leading-relaxed">
-          {desc}
-        </p>
+        <h4 className="text-xl font-black uppercase mb-1">{title}</h4>
+        <p className="text-gray-500 text-sm leading-relaxed">{text}</p>
       </div>
     </div>
   );
